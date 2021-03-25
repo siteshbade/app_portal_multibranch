@@ -33,7 +33,7 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-			deploy adapters: [tomcat8(path: '', url: 'http://3.141.164.2:8085/')], contextPath: '/var/lib/jenkins/workspace/online app mvn build/target/nvnshoppingcart.war', onFailure: false, war: 'war'
+			deploy adapters: [tomcat8(credentialsId: 'Tomcat-cred', path: '', url: 'http://18.217.249.87:8085/')], contextPath: null, onFailure: false, war: 'target\\*war'
      	
 	 }
    }

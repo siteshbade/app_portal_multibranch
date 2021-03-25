@@ -29,21 +29,11 @@ pipeline{
 	  
 	   
 	 
-   //stage ('Stop Tomcat Server') {
-		//steps{
-		//	sshagent(['Tomcat-cred']){
-		//sh " ${tomcatBin}/shutdown.sh"
-		//sh "systemctl stop tomcat"
-             //    sleep(time:10,unit:"SECONDS")
-		//	}
-			//}
-               
-				
-   // }
+   
    stage('Deploy to Production'){
    
 		steps{
-			deploy adapters: [tomcat8(path: '', url: 'http://3.141.164.2:8085/')], contextPath: '/var/lib/jenkins/workspace/mvn build 1/targetnvnshoppingcart.war', onFailure: false, war: 'war'
+			deploy adapters: [tomcat8(path: '', url: 'http://3.141.164.2:8085/')], contextPath: '/var/lib/jenkins/workspace/online app mvn build/target/nvnshoppingcart.war', onFailure: false, war: 'war'
      	
 	 }
    }

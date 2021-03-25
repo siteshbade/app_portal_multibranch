@@ -29,17 +29,17 @@ pipeline{
 	  
 	   
 	 
-   stage ('Stop Tomcat Server') {
-		steps{
-			sshagent(['Tomcat-cred']){
-		sh " ${tomcatBin}/shutdown.sh"
+   //stage ('Stop Tomcat Server') {
+		//steps{
+		//	sshagent(['Tomcat-cred']){
+		//sh " ${tomcatBin}/shutdown.sh"
 		//sh "systemctl stop tomcat"
-                 sleep(time:10,unit:"SECONDS")
-			}
-			}
+             //    sleep(time:10,unit:"SECONDS")
+		//	}
+			//}
                
 				
-    }
+   // }
    stage('Deploy to Production'){
    
 		steps{
@@ -50,7 +50,7 @@ pipeline{
       stage ('Start Tomcat Server') {
 	  steps{
          sleep(time:5,unit:"SECONDS") 
-         sh "${tomcatBin}\\startup.sh"
+         sh "${tomcatBin}/startup.sh"
          sleep(time:100,unit:"SECONDS")
 		 }
    }

@@ -35,7 +35,7 @@ pipeline{
 		steps{
 			sshagent(['jenkins-secret-text']) {
 
-        sh "scp -o StrictHostKeyChecking=no target/*.war /opt/tomcat/webapps/"
+        sh "scp -o StrictHostKeyChecking=no target/*.war http://3.142.69.80:8085:/opt/tomcat/webapps/"
     
 		}
      	

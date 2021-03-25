@@ -31,7 +31,7 @@ pipeline{
 	 
    stage ('Stop Tomcat Server') {
 		steps{
-		sh "${tomcatBin}/shutdown.sh"
+		sh "sudo ${tomcatBin}/shutdown.sh"
                  sleep(time:10,unit:"SECONDS")
                
 				}

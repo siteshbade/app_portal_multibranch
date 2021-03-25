@@ -5,7 +5,7 @@ pipeline{
 	
 	environment{
 	 mvnHome= tool('M3')
-	def tomcatWeb = 'http://18.217.249.87:8085//opt//tomcat//webapps'
+	def tomcatWeb = 'http://18.217.249.87:8085/opt/tomcat/webapps'
 	def tomcatBin = 'http://18.217.249.87:8085//opt//tomcat//bin'
 	//def tomcatStatus = ''
 	 

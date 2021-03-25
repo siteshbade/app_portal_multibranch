@@ -39,7 +39,8 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-     		 "cp target\\nvnshoppingcart.war /"${tomcatWeb}//nvnshoppingcart.war/""
+			scp "target/nvnshoppingcart.war" "${tomcatWeb}/nvnshoppingcart.war"
+     	
 	 }
    }
       stage ('Start Tomcat Server') {

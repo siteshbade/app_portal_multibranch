@@ -23,7 +23,7 @@ pipeline{
 		steps{
       // Get maven home path
         
-      "  ${mvnHome} -Dmaven.test.failure.ignore  package"
+      sh "  ${mvnHome} -Dmaven.test.failure.ignore  package"
 		}
       }
 	  
@@ -39,7 +39,7 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-     		sh "cp target\\nvnshoppingcart.war /"${tomcatWeb}//nvnshoppingcart.war/""
+     		 "cp target\\nvnshoppingcart.war /"${tomcatWeb}//nvnshoppingcart.war/""
 	 }
    }
       stage ('Start Tomcat Server') {

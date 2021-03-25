@@ -31,12 +31,12 @@ pipeline{
 	 
    stage ('Stop Tomcat Server') {
 		steps{
-			sshagent([sshagent(['Tomcat-cred']){
+			sshagent([sshagent(['Tomcat-cred'])
 		sh " ${tomcatBin}/shutdown.sh"
                  sleep(time:10,unit:"SECONDS")
 			}
                
-				}
+				
     }
    stage('Deploy to Production'){
    

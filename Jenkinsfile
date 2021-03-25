@@ -6,7 +6,7 @@ pipeline{
 	environment{
 	 mvnHome= tool('M3')
 	def tomcatWeb = 'http://18.217.249.87:8085/opt/tomcat/webapps'
-	def tomcatBin = 'http://18.217.249.87:8085//opt//tomcat//bin'
+	def tomcatBin = 'http://18.217.249.87:8085/opt/tomcat/bin'
 	//def tomcatStatus = ''
 	 
 	}
@@ -31,7 +31,7 @@ pipeline{
 	 
    stage ('Stop Tomcat Server') {
 		steps{
-		sh "${tomcatBin}\\shutdown.sh"
+		sh "${tomcatBin}/shutdown.sh"
                  sleep(time:10,unit:"SECONDS")
                
 				}

@@ -30,25 +30,7 @@ pipeline{
 	   
 	 
    
-   stage('Deploy to Production'){
-   
-		steps{
-			sshagent(['jenkins-secret-text']) {
-
-        sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@3.142.69.80:8085:/opt/tomcat/webapps/"
-    
-		}
-     	
-	 }
-   }
-      stage ('Start Tomcat Server') {
-	  steps{
-         sleep(time:5,unit:"SECONDS") 
-         sh "${tomcatBin}/startup.sh"
-         sleep(time:100,unit:"SECONDS")
-		 }
-   }
-	
+  
 	
 	
 	}

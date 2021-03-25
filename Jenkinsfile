@@ -23,7 +23,7 @@ pipeline{
 		steps{
       // Get maven home path
         
-      sh "  ${mvnHome} -Dmaven.test.failure.ignore  package"
+      "  ${mvnHome} -Dmaven.test.failure.ignore  package"
 		}
       }
 	  

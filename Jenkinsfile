@@ -33,7 +33,7 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-			deploy adapters: [tomcat8(path: '', url: 'http://3.142.69.80:8085/')], contextPath: null, onFailure: false, war: 'target\\*war'
+			deploy adapters: [tomcat8(credentialsId: 'Tomcat-cred', path: '', url: 'http://3.142.69.80:8085/')], contextPath: '/opt/tomcat/webapps/', onFailure: false, war: 'target\\*war'
      	
 	 }
    }

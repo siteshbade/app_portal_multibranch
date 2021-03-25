@@ -33,7 +33,7 @@ pipeline{
 		steps{
 		//sshagent(['Tomcat-cred'])
 		//sh " ${tomcatBin}/shutdown.sh"
-		sh "systemctl stop tomcate
+		sh "systemctl stop tomcat"
                  sleep(time:10,unit:"SECONDS")
 			}
                

@@ -5,9 +5,9 @@ pipeline{
 	
 	environment{
 	 mvnHome= tool('M3')
-	 def tomcatWeb = 'http://3.141.164.2:8085///opt//tomcat//webapps'
-	 def tomcatBin = 'http://3.141.164.2:8085//opt//tomcat//bin'
-	 def tomcatStatus = ''
+	// def tomcatWeb = 'http://3.141.164.2:8085///opt//tomcat//webapps'
+	// def tomcatBin = 'http://3.141.164.2:8085//opt//tomcat//bin'
+	// def tomcatStatus = ''
 	 
 	}
 	
@@ -39,7 +39,7 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-			scp "target/nvnshoppingcart.war" "${tomcatWeb}/nvnshoppingcart.war"
+			deploy adapters: [tomcat8(path: '', url: 'http://3.141.164.2:8085/')], contextPath: '/var/lib/jenkins/workspace/mvn build 1/targetnvnshoppingcart.war', onFailure: false, war: 'war'
      	
 	 }
    }

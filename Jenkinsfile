@@ -33,7 +33,11 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-			deploy adapters: [tomcat8(credentialsId: 'Tomcate', path: '', url: 'http://3.142.69.80:8085/')], contextPath: '/opt/tomcat/webapps', war: 'target\\*.war'
+			sshagent(['jenkins-secret-text']) {
+
+        sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/online app mvn build/target/nvnshoppingcart.war /opt/tomcat/webapps/
+    
+		}
      	
 	 }
    }

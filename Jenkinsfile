@@ -35,7 +35,7 @@ pipeline{
 		steps{
 			sshagent(['jenkins-secret-text']) {
 
-        sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/online app mvn build/target/nvnshoppingcart.war /opt/tomcat/webapps/
+        sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/online app mvn build/target/nvnshoppingcart.war /opt/tomcat/webapps/"
     
 		}
      	

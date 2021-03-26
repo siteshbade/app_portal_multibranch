@@ -5,9 +5,6 @@ pipeline{
 	
 	environment{
 	 mvnHome= tool('M3')
-	def tomcatWeb = '/opt/tomcat/webapps'
-	def tomcatBin = '/opt/tomcat/bin'
-	//def tomcatStatus = ''
 	 
 	}
 	
@@ -27,12 +24,18 @@ pipeline{
 		}
       }
 	  
-	   
-	 
+	
+   stage('Deploy to Production'){
    
-  
+		steps{
+     deploy adapters: [tomcat8(credentialsId: 'manager-script', path: '', url: 'http://13.59.124.129:8085/')], contextPath: 'nvnshoppingcart', onFailure: false, war: 'target\\*.war'
+	 }
+   }
+      
+	
 	
 	
 	}
    
 }
+

@@ -28,7 +28,7 @@ pipeline{
    stage('Deploy to Production'){
    
 		steps{
-     deploy adapters: [tomcat8(credentialsId: 'manager-script', path: '', url: 'http://3.143.116.80:8085/')], contextPath: 'sample', onFailure: false, war: 'target\\*.war'
+     deploy adapters: [tomcat8(credentialsId: 'manager-script', path: '', url: 'http://3.143.116.80:8085/')], contextPath: 'nvnshoppingcart', onFailure: false, war: 'target\\*.war'
 	 }
    }
       
